@@ -5,6 +5,7 @@
 int main(int argc, char *argv[]) {
    
     int fd = creat(argv[1], 0644);
+    printf("File descriptor: %d\n", fd);
     if (fd == -1) {
         perror("Error creating file");
         return 1;
