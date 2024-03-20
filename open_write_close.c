@@ -25,7 +25,7 @@ double get_time(void)
 int main(int argc, char *argv[]) {
 
 	double t_bc,t_ac,t_bw,t_aw;
-
+    int w_ret,fd;
     /*
         Se llena el buffer con el caracter 'a'
         se llena hasta el tamaño BUFF_SIZE
@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
 
     t_bc = get_time();
    
-    int fd = creat(argv[1], 0644);
+    fd = creat(argv[1], 0644);
     if(fd < 0) {
         printf("%d = creat('%s', %o)\n", fd, argv[1], 0644);
         return -1;
@@ -54,10 +54,10 @@ int main(int argc, char *argv[]) {
     */
     for (int i = 0; i < mb; i++)
 	{
-		ret = write(fd, buffer, BUFF_SIZE);
+		w_ret = write(fd, buffer, BUFF_SIZE);
 	}
 
-    t_aW = get_time() - t_aw;
+    t_aw = get_time() - t_aw;
 
     close(fd);
 
