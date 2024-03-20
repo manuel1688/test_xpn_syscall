@@ -55,6 +55,7 @@ int main(int argc, char *argv[]) {
     for (int i = 0; i < mb; i++)
 	{
 		w_ret = write(fd, buffer, BUFF_SIZE);
+        printf("%d = write(%d, buffer, %d)\n", w_ret, fd, BUFF_SIZE);
 	}
 
     t_aw = get_time() - t_bw;
