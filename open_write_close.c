@@ -38,6 +38,8 @@ int main(int argc, char *argv[]) {
     if(fd < 0) {
         printf("%d = creat('%s', %o)\n", fd, argv[1], 0644);
         return -1;
+    }else{
+        printf("File descriptor: %d\n", fd);
     }
     t_bw = get_time();
 
