@@ -54,7 +54,7 @@ int main(int argc, char *argv[]) {
     */
     for (int i = 0; i < mb; i++)
 	{
-		ret = write(fd1, buffer, BUFF_SIZE);
+		ret = write(fd, buffer, BUFF_SIZE);
 	}
 
     t_aW = get_time() - t_aw;

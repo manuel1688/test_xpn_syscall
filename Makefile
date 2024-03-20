@@ -9,14 +9,17 @@
 
 # Rules
 
-all: prueba_create 
+all: prueba_create open_write_close
 
 prueba_create: prueba_create.o
 	$(CC) -o prueba_create prueba_create.o $(MYLIBPATH) $(LIBRARIES)
+
+open_write_close: open_write_close.o
+	$(CC) -o open_write_close open_write_close.o $(MYLIBPATH) $(LIBRARIES)
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(MYFLAGS) $(MYHEADER) -c $< -o $@
 
 clean:
 	rm -f ./*.o
-	rm -f ./prueba_create 
+	rm -f ./prueba_create ./open_write_close
