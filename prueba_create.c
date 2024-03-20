@@ -35,8 +35,7 @@ int main(int argc, char *argv[]) {
 
     t_ac = get_time() - t_bc;
 
-	printf("Bytes (KiB); Total time (ms); Read time (ms)\n") ;
-	printf("%f;%f;%f\n", ((double)mb * (double)BUFF_SIZE) / ((double)KB), t_ac * 1000, t_aw * 1000);
+
 
     return 0; 
 }
