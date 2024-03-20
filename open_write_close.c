@@ -57,9 +57,13 @@ int main(int argc, char *argv[]) {
 		w_ret = write(fd, buffer, BUFF_SIZE);
 	}
 
-    t_aw = get_time() - t_aw;
+    t_aw = get_time() - t_bw;
 
-    close(fd);
+    w_ret = close(fd);
+    if (w_ret < 0) {
+        printf("%d = close(%d)\n", w_ret, fd);
+        return -1;
+    }
 
     t_ac = get_time() - t_bc;
 
