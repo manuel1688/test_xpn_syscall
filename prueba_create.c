@@ -20,10 +20,14 @@ double get_time(void)
 
 int main(int argc, char *argv[]) 
 {
+    int fd;
+    double t_bc, t_ac;
+
     printf("argc: %d\n", argc);
     printf("argv[0]: %s\n", argv[0]);
     printf("argv[1]: %s\n", argv[1]);
     printf("argv[2]: %s\n", argv[2]);
+
     if (argc < 3)
 	{
         printf("\n");
@@ -35,12 +39,20 @@ int main(int argc, char *argv[])
         return -1 ;
 	}	
 
-    int fd = creat(argv[1], 0644);
-    if (fd == -1) 
+    t_bc = get_time();
+
+    fd = creat(argv[1], 00777);
+    if (fd < 0) 
     {
-        perror("Error creating file");
-        return 1;
+        printf("%d = creat('%s', %o)\n", ret, argv[1], 00777) ;
+ 	    return -1 ;
     }
+
+    t_ac = get_time() - t_bc;
+
+    printf("Bytes (KiB); Total time (ms); Read time (ms)\n") ;
+    printf("%f;%f\n", ((double)mb * (double)BUFF_SIZE) / ((double)KB), t_ac * 1000);
+
     close(fd);
     return 0;
 }
