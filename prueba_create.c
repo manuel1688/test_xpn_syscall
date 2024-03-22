@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
     fd = creat(argv[1], 00777);
     if (fd < 0) 
     {
-        printf("%d = creat('%s', %o)\n", ret, argv[1], 00777) ;
+        printf("%d = creat('%s', %o)\n", fd, argv[1], 00777) ;
  	    return -1 ;
     }
 
