@@ -52,7 +52,6 @@ int main(int argc, char *argv[])
 
     printf("Bytes (KiB); Total time (ms); Read time (ms)\n") ;
     printf("%f;%f\n", ((double)mb * (double)BUFF_SIZE) / ((double)KB), t_ac * 1000);
-
     close(fd);
     return 0;
 }
