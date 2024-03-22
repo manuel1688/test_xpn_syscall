@@ -22,6 +22,7 @@ int main(int argc, char *argv[])
 {
     int fd;
     double t_bc, t_ac;
+    long mb = atoi(argv[2]) ;
 
     printf("argc: %d\n", argc);
     printf("argv[0]: %s\n", argv[0]);
