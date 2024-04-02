@@ -44,10 +44,11 @@ int main(int argc, char *argv[])
     fd = creat(argv[1], 00777);
     if (fd < 0) 
     {
-        printf("%d = creat('%s', %o)\n", fd, argv[1], 00777) ;
+        printf("Error creating file\n");
  	    return -1 ;
     }
 
+    printf("%d = creat('%s', %o)\n", fd, argv[1], 00777);
     t_ac = get_time() - t_bc;
 
     printf("Bytes (KiB); Total time (ms); Read time (ms)\n") ;
