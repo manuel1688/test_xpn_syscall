@@ -20,7 +20,7 @@ double get_time(void)
 
 int main ( int argc, char *argv[] )
 {
-	int    ret, fd;
+	int    ret, fd1;
 	double t_bc, t_ac, t_bw, t_aw ;
 
     if(argc < 3)
@@ -34,35 +34,41 @@ int main ( int argc, char *argv[] )
 	    return -1 ;
 	}	
 
+	// init
 	memset(buffer, 'a', BUFF_SIZE) ;
-    // printf("memset(buffer, 'a', %d)\n", BUFF_SIZE) ;
+     // printf("memset(buffer, 'a', %d)\n", BUFF_SIZE) ;
 
+	// xpn-creat
 	t_bc = get_time();
-	fd = creat(argv[1], 00777);
-	if (fd < 0) 
+
+	fd1 = creat(argv[1], 00777);
+	if (fd1 < 0) 
     {
-		printf("Error creating file\n");
+	    printf("%d = creat('%s', %o)\n", ret, argv[1], 00777) ;
 	    return -1 ;
 	}
-	printf("%d = creat('%s', %o)\n", ret, argv[1], 00777) ;
+
 	t_bw = get_time();
 
+	// xpn-write
     long mb = atoi(argv[2]) ;
+	// atoi es una función que convierte una cadena a un entero
 	for (int i = 0; i < mb; i++)
 	{
-		ret = write(fd, buffer, BUFF_SIZE);
+		ret = write(fd1, buffer, BUFF_SIZE);
+	  	// printf("%d = write_%d(%d, %p, %lu)\n", ret, i, fd1, buffer, (unsigned long)BUFF_SIZE);
 	}
-	// printf("%d = write(%d, buffer, %d)\n", ret, fd, BUFF_SIZE) ;
 	
 	t_aw = get_time() - t_bw;
 
-	ret = close(fd);
-    printf("%d = close(%d)\n", ret, fd) ;
+	ret = close(fd1);
+     // printf("%d = close(%d)\n", ret, fd1) ;
 
 	t_ac = get_time() - t_bc;
 
 	printf("Bytes (KiB); Total time (ms); Read time (ms)\n") ;
 	printf("%f;%f;%f\n", ((double)mb * (double)BUFF_SIZE) / ((double)KB), t_ac * 1000, t_aw * 1000);
+
 	return 0;
 }
 
