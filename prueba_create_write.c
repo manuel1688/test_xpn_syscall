@@ -62,6 +62,10 @@ int main ( int argc, char *argv[] )
 	t_aw = get_time() - t_bw;
 
 	ret = close(fd1);
+	if(ret < 0){
+		printf("Error closing file\n");
+		return -1 ;
+	}
     printf("%d = close(%d)\n", ret, fd1) ;
 
 	t_ac = get_time() - t_bc;
