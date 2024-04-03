@@ -35,7 +35,7 @@ int main ( int argc, char *argv[] )
 	}	
 
 	memset(buffer, 'a', BUFF_SIZE) ;
-    printf("memset(buffer, 'a', %d)\n", BUFF_SIZE) ;
+    // printf("memset(buffer, 'a', %d)\n", BUFF_SIZE) ;
 
 	t_bc = get_time();
 	fd = creat(argv[1], 00777);
@@ -52,7 +52,7 @@ int main ( int argc, char *argv[] )
 	{
 		ret = write(fd, buffer, BUFF_SIZE);
 	}
-	printf("%d = write(%d, buffer, %d)\n", ret, fd, BUFF_SIZE) ;
+	// printf("%d = write(%d, buffer, %d)\n", ret, fd, BUFF_SIZE) ;
 	
 	t_aw = get_time() - t_bw;
 
