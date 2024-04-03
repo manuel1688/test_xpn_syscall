@@ -44,10 +44,10 @@ int main ( int argc, char *argv[] )
 	fd1 = creat(argv[1], 00777);
 	if (fd1 < 0) 
     {
-	    printf("%d = creat('%s', %o)\n", ret, argv[1], 00777) ;
+		printf("Error creating file\n");
 	    return -1 ;
 	}
-
+	printf("%d = creat('%s', %o)\n", ret, argv[1], 00777) ;
 	t_bw = get_time();
 
 	// xpn-write
@@ -62,7 +62,7 @@ int main ( int argc, char *argv[] )
 	t_aw = get_time() - t_bw;
 
 	ret = close(fd1);
-     // printf("%d = close(%d)\n", ret, fd1) ;
+    printf("%d = close(%d)\n", ret, fd1) ;
 
 	t_ac = get_time() - t_bc;
 
