@@ -34,11 +34,7 @@ int main ( int argc, char *argv[] )
 	    return -1 ;
 	}	
 
-	// init
 	memset(buffer, 'a', BUFF_SIZE) ;
-     // printf("memset(buffer, 'a', %d)\n", BUFF_SIZE) ;
-
-	// xpn-creat
 	t_bc = get_time();
 
 	fd1 = creat(argv[1], 00777);
@@ -50,9 +46,7 @@ int main ( int argc, char *argv[] )
 	printf("%d = creat('%s', %o)\n", ret, argv[1], 00777) ;
 	t_bw = get_time();
 
-	// xpn-write
     long mb = atoi(argv[2]) ;
-	// atoi es una función que convierte una cadena a un entero
 	for (int i = 0; i < mb; i++)
 	{
 		ret = write(fd1, buffer, BUFF_SIZE);
