@@ -47,7 +47,7 @@ int main ( int argc, char *argv[] )
 	for (int i = 0; i < mb; i++)
 	{
 		ret = read(fd, buffer, BUFF_SIZE);
-		printf("%d = read_%d(%d, %p, %lu)\n", ret, i, fd1, buffer, (unsigned long)BUFF_SIZE);
+		printf("%d = read_%d(%d, %p, %lu)\n", ret, i, fd, buffer, (unsigned long)BUFF_SIZE);
 	}
 
 	t_aw = get_time() - t_bw;
