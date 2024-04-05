@@ -53,7 +53,7 @@ int main ( int argc, char *argv[] )
 	t_aw = get_time() - t_bw;
 
 	ret = close(fd);
-	printf("%d = close(%d)\n", ret, fd1) ;
+	printf("%d = close(%d)\n", ret, fd) ;
 
 	t_ac = get_time() - t_bc;
 
