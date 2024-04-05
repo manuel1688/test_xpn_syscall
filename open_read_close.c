@@ -38,21 +38,22 @@ int main ( int argc, char *argv[] )
 
 	fd = open(argv[1], O_RDWR);
 	if (fd < 0) {
-		printf("%d = open('%s', %o)\n", ret, argv[1], 00777) ;
+		printf("Error opening file\n");
 		return -1 ;
 	}
+	printf("%d = open('%s', %o)\n", ret, argv[1], 00777) ;
 
 	long mb = atoi(argv[2]) ;
 	for (int i = 0; i < mb; i++)
 	{
 		ret = read(fd, buffer, BUFF_SIZE);
-		// printf("%d = read_%d(%d, %p, %lu)\n", ret, i, fd1, buffer, (unsigned long)BUFF_SIZE);
+		printf("%d = read_%d(%d, %p, %lu)\n", ret, i, fd1, buffer, (unsigned long)BUFF_SIZE);
 	}
 
 	t_aw = get_time() - t_bw;
 
 	ret = close(fd);
-	// printf("%d = close(%d)\n", ret, fd1) ;
+	printf("%d = close(%d)\n", ret, fd1) ;
 
 	t_ac = get_time() - t_bc;
 
