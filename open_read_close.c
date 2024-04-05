@@ -37,7 +37,7 @@ int main ( int argc, char *argv[] )
 	t_bc = get_time();
 
 	fd = open(argv[1], O_RDWR);
-	printf("fd = %d\n", fd) ;
+	printf("fd = %d\n", fd);
 	if (fd < 0) {
 		printf("Error opening file\n");
 		return -1 ;
