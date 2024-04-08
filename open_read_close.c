@@ -19,7 +19,7 @@ double get_time(void)
 
 int main ( int argc, char *argv[] )
 {
-	int	ret,fd;
+	int	ret,fd1;
 	double t_bc,t_ac,t_bw,t_aw;
 
 	if (argc < 3)
@@ -37,9 +37,9 @@ int main ( int argc, char *argv[] )
 	t_bc = get_time();
 
 	printf("open('%s', %o)\n", argv[1], O_RDWR);
-	fd = open(argv[1], O_RDWR);
-	printf("fd = %d\n", fd);
-	if (fd < 0) {
+	fd1 = open(argv[1], O_RDWR);
+	printf("fd1 = %d\n", fd1);
+	if (fd1 < 0) {
 		printf("Error opening file\n");
 		return -1 ;
 	}
@@ -48,14 +48,14 @@ int main ( int argc, char *argv[] )
 	long mb = atoi(argv[2]) ;
 	for (int i = 0; i < mb; i++)
 	{
-		ret = read(fd, buffer, BUFF_SIZE);
-		printf("%d = read_%d(%d, %p, %lu)\n", ret, i, fd, buffer, (unsigned long)BUFF_SIZE);
+		ret = read(fd1, buffer, BUFF_SIZE);
+		printf("%d = read_%d(%d, %p, %lu)\n", ret, i, fd1, buffer, (unsigned long)BUFF_SIZE);
 	}
 
 	t_aw = get_time() - t_bw;
 
-	ret = close(fd);
-	printf("%d = close(%d)\n", ret, fd) ;
+	ret = close(fd1);
+	printf("%d = close(%d)\n", ret, fd1) ;
 
 	t_ac = get_time() - t_bc;
 
