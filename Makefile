@@ -10,9 +10,6 @@
 # Rules
 all: prueba_create create_write_close open_read_close
 
-prueba_create: prueba_create.c
-	$(CC) -o prueba_create prueba_create.o $(MYLIBPATH) $(LIBRARIES)
-
 create_write_close: create_write_close.c
 	$(CC) -o create_write_close create_write_close.o $(MYLIBPATH) $(LIBRARIES)
 
@@ -24,4 +21,4 @@ open_read_close: open_read_close.c
 
 clean:
 	rm -f ./*.o
-	rm -f ./prueba_create ./create_write_close ./open_read_close
+	rm -f ./create_write_close ./open_read_close
