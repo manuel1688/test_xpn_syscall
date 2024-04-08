@@ -11,10 +11,10 @@
 all: create_write_close open_read_close
 
 create_write_close: create_write_close.c
-	$(CC) -o create_write_close create_write_close.o $(MYLIBPATH) $(LIBRARIES)
+	$(CC) -o create_write_close $(MYLIBPATH) $(LIBRARIES)
 
 open_read_close: open_read_close.c
-	$(CC) -o open_read_close open_read_close.o $(MYLIBPATH) $(LIBRARIES)
+	$(CC) -o open_read_close $(MYLIBPATH) $(LIBRARIES)
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(MYFLAGS) $(MYHEADER) -c $< -o $@
