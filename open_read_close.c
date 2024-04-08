@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include "all_system.h"
 #include <sys/time.h>
+#include <sys/syscall.h>
 
 #define KB  (1024)
 #define BUFF_SIZE (1*MB)
@@ -35,7 +36,7 @@ int main ( int argc, char *argv[] )
 
 	memset(buffer, 'a', BUFF_SIZE) ;
 	t_bc = get_time();
-
+	printf("SYS_open: %d\n", SYS_open);
 	printf("open('%s', %o)\n", argv[1], O_RDWR);
 	fd1 = open(argv[1], O_RDWR);
 	printf("fd1 = %d\n", fd1);
