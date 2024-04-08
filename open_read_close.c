@@ -36,6 +36,7 @@ int main ( int argc, char *argv[] )
 	memset(buffer, 'a', BUFF_SIZE) ;
 	t_bc = get_time();
 
+	printf("open('%s', %o)\n", argv[1], O_RDWR);
 	fd = open(argv[1], O_RDWR);
 	printf("fd = %d\n", fd);
 	if (fd < 0) {
