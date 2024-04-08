@@ -24,4 +24,4 @@ open_read_close: open_read_close.c
 
 clean:
 	rm -f ./*.o
-	rm -f ./prueba_create create_write_close open_read_close
+	rm -f ./prueba_create ./create_write_close ./open_read_close
