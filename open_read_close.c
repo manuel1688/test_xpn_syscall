@@ -1,22 +1,23 @@
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdio.h>
 #include "all_system.h"
 #include <sys/time.h>
-#include <sys/syscall.h>
+
+
 
 #define KB  (1024)
-#define BUFF_SIZE (1*MB)
 
+#define BUFF_SIZE (1*MB)
 char buffer[BUFF_SIZE] ; 
+
 
 double get_time(void)
 {
     struct timeval tp;
     struct timezone tzp;
+
     gettimeofday(&tp,&tzp);
     return((double) tp.tv_sec + .000001 * (double) tp.tv_usec);
 }
+
 
 int main ( int argc, char *argv[] )
 {
@@ -35,8 +36,9 @@ int main ( int argc, char *argv[] )
 	}	
 
 	memset(buffer, 'a', BUFF_SIZE) ;
+
 	t_bc = get_time();
-	printf("SYS_open: %d\n", SYS_open);
+	
 	printf("open('%s', %o)\n", argv[1], O_RDWR);
 	fd1 = open(argv[1], O_RDWR);
 	printf("fd1 = %d\n", fd1);
@@ -46,6 +48,8 @@ int main ( int argc, char *argv[] )
 	}
 	printf("%d = open('%s', %o)\n", ret, argv[1], 00777) ;
 
+	t_bw = get_time(); 
+	
 	long mb = atoi(argv[2]) ;
 	for (int i = 0; i < mb; i++)
 	{
