@@ -41,7 +41,7 @@ int main ( int argc, char *argv[] )
 	
 	// printf("open('%s', %o)\n", argv[1], O_RDWR);
 	
-	fd1 = open(argv[1], O_RDWR | O_CREAT, S_IRUSR | S_IWUSR);
+	fd1 = open(argv[1], O_RDWR);
 	// printf("fd1 = %d\n", fd1);
 	if (fd1 < 0) {
 		printf("Error opening file\n");
