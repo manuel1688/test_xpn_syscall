@@ -56,7 +56,7 @@ int main ( int argc, char *argv[] )
 	for (int i = 0; i < mb; i++)
 	{
 		size_t bytes_written = fwrite(buffer, sizeof(char), BUFF_SIZE, stream);
-		printf("%zu = fwrite(%p, %zu, %zu, %p)\n", bytes_written, buffer, sizeof(char), BUFF_SIZE, stream);
+		printf("%zu = fwrite(%p, %zu, %d, %p)\n", bytes_written, buffer, sizeof(char), BUFF_SIZE, stream);
 	}
 	
 	t_aw = get_time() - t_bw;
