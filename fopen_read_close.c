@@ -51,15 +51,14 @@ int main ( int argc, char *argv[] )
 	long mb = atoi(argv[2]);
 	for (int i = 0; i < mb; i++)
 	{
-		// ret = read(fd1, buffer, BUFF_SIZE);
 		n = fread(buffer, 1, BUFF_SIZE, file);
 		printf("%lu = fread_%d(%d, %p, %lu)\n", n, i, fd1, buffer, (unsigned long)BUFF_SIZE);
 	}
 
 	t_aw = get_time() - t_bw;
 
-    ret = close(fd1);  
-	printf("%d = close(%d)\n", ret, fd1) ;
+    ret = fclose(file);  
+	printf("%d = fclose(%d)\n", ret, fd1) ;
 
 	t_ac = get_time() - t_bc;
 
