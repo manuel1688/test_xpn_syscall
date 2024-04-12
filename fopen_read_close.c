@@ -39,6 +39,7 @@ int main ( int argc, char *argv[] )
 
     // Aquí puedes leer o escribir en el archivo
     int fd = fileno(file);
+	printf("fd = %d\n", fd);
     close(fd);  // No olvides cerrar el archivo cuando hayas terminado
     return 0;
 }
