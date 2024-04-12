@@ -33,4 +33,4 @@ create_fwrite_fclose: create_fwrite_fclose.o
 
 clean:
 	rm -f ./*.o
-	rm -f ./prueba_create ./create_write_close ./open_read_close ./openat_read_close ./fopen_read_close ./create_fwrite_fclose
+	rm -f ./prueba_create ./create_write_close ./open_read_close ./openat_read_close ./fopen_fread_fclose ./create_fwrite_fclose
