@@ -21,6 +21,7 @@ double get_time(void)
 int main ( int argc, char *argv[] )
 {
 	int	ret,fd1;
+	size_t n;
 	double t_bc,t_ac,t_bw,t_aw;
 
 	if (argc < 3)
@@ -43,15 +44,16 @@ int main ( int argc, char *argv[] )
     }
 
     fd1 = fileno(file);
-	printf("%d = fopen('%s', %s)\n", fd1, argv[1],"r+");
+	printf("%d = fopen('%s','%s')\n", fd1, argv[1],"r+");
 
 	t_bw = get_time(); 
 
 	long mb = atoi(argv[2]);
 	for (int i = 0; i < mb; i++)
 	{
-		ret = read(fd1, buffer, BUFF_SIZE);
-		printf("%d = read_%d(%d, %p, %lu)\n", ret, i, fd1, buffer, (unsigned long)BUFF_SIZE);
+		// ret = read(fd1, buffer, BUFF_SIZE);
+		n = fread(buffer, 1, BUFF_SIZE, file);
+		printf("%lu = fread_%d(%d, %p, %lu)\n", n, i, fd1, buffer, (unsigned long)BUFF_SIZE);
 	}
 
 	t_aw = get_time() - t_bw;
