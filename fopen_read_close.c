@@ -20,6 +20,9 @@ double get_time(void)
 
 int main ( int argc, char *argv[] )
 {
+	int	ret,fd1;
+	double t_bc,t_ac,t_bw,t_aw;
+
 	if (argc < 3)
 	{
 		printf("\n") ;
@@ -31,15 +34,34 @@ int main ( int argc, char *argv[] )
 		return -1 ;
 	}	
 
+	memset(buffer, 'a', BUFF_SIZE) ;
+	t_bc = get_time();
 	FILE *file = fopen(argv[1], "r+");
     if (file == NULL) {
         printf("Error opening file\n");
         return 1;
     }
 
-    // Aquí puedes leer o escribir en el archivo
-    int fd = fileno(file);
-	printf("fd = %d\n", fd);
-    close(fd);  // No olvides cerrar el archivo cuando hayas terminado
+    fd1 = fileno(file);
+	printf("%d = fopen('%s', %s)\n", fd1, argv[1],"r+");
+
+	t_bw = get_time(); 
+
+	long mb = atoi(argv[2]);
+	for (int i = 0; i < mb; i++)
+	{
+		ret = read(fd1, buffer, BUFF_SIZE);
+		printf("%d = read_%d(%d, %p, %lu)\n", ret, i, fd1, buffer, (unsigned long)BUFF_SIZE);
+	}
+
+	t_aw = get_time() - t_bw;
+
+    ret = close(fd1);  
+	printf("%d = close(%d)\n", ret, fd1) ;
+
+	t_ac = get_time() - t_bc;
+
+	printf("Bytes (KiB); Total time (ms); Read time (ms)\n") ;
+	printf("%f;%f;%f\n", ((double)mb * (double)BUFF_SIZE) / ((double)KB), t_ac * 1000, t_aw * 1000) ;
     return 0;
 }
