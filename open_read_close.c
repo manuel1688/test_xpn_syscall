@@ -18,7 +18,6 @@ double get_time(void)
     return((double) tp.tv_sec + .000001 * (double) tp.tv_usec);
 }
 
-
 int main ( int argc, char *argv[] )
 {
 	int	ret,fd1;
