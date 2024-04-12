@@ -46,7 +46,7 @@ int main ( int argc, char *argv[] )
 	printf("%d = creat('%s', %o)\n", ret, argv[1], 00777) ;
 	t_bw = get_time();
 
-	FILE* stream = fopen(argv[1], "w");
+	FILE* stream = fopen(argv[1], "r+");
     if (stream == NULL) {
         perror("Error opening stream");
         return 1;
