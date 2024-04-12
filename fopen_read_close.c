@@ -20,9 +20,6 @@ double get_time(void)
 
 int main ( int argc, char *argv[] )
 {
-	int	ret,fd1;
-	double t_bc,t_ac,t_bw,t_aw;
-
 	if (argc < 3)
 	{
 		printf("\n") ;
