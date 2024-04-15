@@ -36,6 +36,7 @@ int main ( int argc, char *argv[] )
 
 	memset(buffer, 'a', BUFF_SIZE) ;
 	t_bc = get_time();
+	
 	fd1 = open(argv[1], O_RDWR);
 	if (fd1 < 0) {
 		printf("Error opening file\n");
