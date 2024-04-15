@@ -42,7 +42,7 @@ int main ( int argc, char *argv[] )
 		printf("Error opening file\n");
 		return -1 ;
 	}
-	printf("%d = open('%s', %o)\n", fd1, argv[1], 00777) ;
+	printf("%d = open64('%s', %o)\n", fd1, argv[1], 00777) ;
 
 	t_bw = get_time(); 
 	
