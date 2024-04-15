@@ -66,7 +66,7 @@ int main ( int argc, char *argv[] )
     ret = fclose(file);  
 	printf("%d = fclose(%d)\n", ret, fd) ;
 
-	t_ac = get_time() - t_br;
+	t_ar = get_time() - t_br;
 
 	printf("Bytes (KiB); Open time (ms); Read time (ms)\n");
 	printf("%f;%f;%f\n", ((double)mb * (double)BUFF_SIZE) / ((double)KB), t_ao * 1000, t_ar * 1000);
