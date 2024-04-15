@@ -43,6 +43,7 @@ int main ( int argc, char *argv[] )
 		printf("Error opening file\n");
 		return -1 ;
 	}
+	
 	printf("%d = open('%s', %o)\n", fd, argv[1], 00777);
 
 	FILE *file = fdopen(fd, "r");
