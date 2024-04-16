@@ -50,6 +50,7 @@ int main ( int argc, char *argv[] )
 	{
 		ret = pwrite(fd1, buffer, BUFF_SIZE, i * BUFF_SIZE);
 		printf("%d = pwrite_%d(%d, buffer, %d, %d)\n", ret, i, fd1, BUFF_SIZE, i * BUFF_SIZE);
+		// printf("%d = write_%d(%d, %p, %lu)\n", ret, i, fd1, buffer, (unsigned long)BUFF_SIZE);
 	}
 	
 	t_aw = get_time() - t_bw;
