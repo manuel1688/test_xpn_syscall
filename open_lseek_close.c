@@ -50,7 +50,7 @@ int main ( int argc, char *argv[] )
 		printf("Error seeking file\n");
 		return -1;
 	}
-	printf("%d = lseek(%d, 0, %d)\n", offset, fd1, SEEK_SET);
+	printf("%ld = lseek(%d, 0, %d)\n", offset, fd1, SEEK_SET);
 	
 	long mb = atoi(argv[2]) ;
 	for (int i = 0; i < mb; i++)
