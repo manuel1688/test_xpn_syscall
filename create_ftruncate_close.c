@@ -58,7 +58,7 @@ int main ( int argc, char *argv[] )
 		printf("Error truncating file\n");
 		return -1;
 	}
-	printf("%d = ftruncate(%d, %ld)\n", ret, fd1, 1 * BUFF_SIZE);
+	printf("%d = ftruncate(%d, %d)\n", ret, fd1, 1 * BUFF_SIZE);
 	
 	t_aw = get_time() - t_bw;
 
