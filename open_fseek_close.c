@@ -36,21 +36,24 @@ int main ( int argc, char *argv[] )
 	memset(buffer, 'a', BUFF_SIZE) ;
 	t_bc = get_time();
 
+
 	fd1 = open(argv[1], O_RDWR);
+	FILE *file = fopen(argv[1], "r+");
+	fd1 = fileno(file);
 	if (fd1 < 0) {
 		printf("Error opening file\n");
 		return -1 ;
 	}
-	printf("%d = open('%s', %o)\n", fd1, argv[1], 00777) ;
+	printf("%d = fopen('%s', %o)\n", fd1, argv[1], 00777) ;
 
 	t_bw = get_time(); 
 
-	off_t offset = lseek(fd1, 0, SEEK_SET);
-	if (offset == -1) {
+	int x = fseek(file, 0, SEEK_SET);
+	if (x == -1) {
 		printf("Error seeking file\n");
 		return -1;
 	}
-	printf("%ld = lseek(%d, 0, %d)\n", offset, fd1, SEEK_SET);
+	printf("%ld = fseek(%d, 0, %d)\n", x, fd1, SEEK_SET);
 
 	long mb = atoi(argv[2]) ;
 	for (int i = 0; i < mb; i++)
