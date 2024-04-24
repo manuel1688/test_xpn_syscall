@@ -48,7 +48,9 @@ int main ( int argc, char *argv[] )
 	// printf("File permissions: %o\n", st.st_mode & 0777);	
 
 	struct stat statbuf;
-	if (stat(argv[1], &statbuf) != 0)
+	int result = stat(argv[1], &statbuf);
+	printf("result: %d\n", result);
+	if (result)
 	{
 		printf("Error getting file status\n");
 		return -1;
