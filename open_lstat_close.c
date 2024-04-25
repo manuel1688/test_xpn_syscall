@@ -37,7 +37,7 @@ int main ( int argc, char *argv[] )
 	}
 
 	struct stat statbuf;
-	int result = stat(argv[1], &statbuf);
+	int result = lstat(argv[1], &statbuf);
 	printf("path: %s\n", argv[1]);
 	printf("result: %d\n", result);
 	if (result == -1)
