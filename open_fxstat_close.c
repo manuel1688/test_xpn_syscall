@@ -59,7 +59,7 @@ int main ( int argc, char *argv[] )
 
 	t_bw = get_time(); 
 	
-	// long mb = atoi(argv[2]) ;
+	long mb = atoi(argv[2]) ;
 	// for (int i = 0; i < mb; i++)
 	// {
 	// 	ret = read(fd1, buffer, BUFF_SIZE);
