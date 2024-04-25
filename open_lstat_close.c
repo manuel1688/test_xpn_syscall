@@ -45,7 +45,7 @@ int main ( int argc, char *argv[] )
 		printf("Error getting file status\n");
 		return -1;
 	}
-
+	printf("%d = lstat('%s', %p)\n", result, argv[1], &statbuf);
 	printf("File size: %lld bytes\n", (long long)statbuf.st_size);
 	printf("File permissions: %o\n", statbuf.st_mode & 0777);
 	
