@@ -24,6 +24,7 @@ int main ( int argc, char *argv[] )
 {
 	int	ret,fd1;
 	double t_bc,t_ac,t_bw,t_aw;
+	struct stat statbuf;
 
 	if (argc < 3)
 	{
@@ -36,19 +37,6 @@ int main ( int argc, char *argv[] )
 		return -1 ;
 	}
 
-	struct stat statbuf;
-	int result = stat(argv[1], &statbuf);
-	printf("path: %s\n", argv[1])
-	printf("result: %d\n", result);
-	if (result)
-	{
-		printf("Error getting file status\n");
-		return -1;
-	}
-
-	printf("File size: %lld bytes\n", (long long)statbuf.st_size);
-	printf("File permissions: %o\n", statbuf.st_mode & 0777);
-	
 	memset(buffer, 'a', BUFF_SIZE) ;
 	t_bc = get_time();
 	
@@ -58,6 +46,15 @@ int main ( int argc, char *argv[] )
 		return -1 ;
 	}
 	printf("%d = open('%s', %o)\n", fd1, argv[1], 00777);
+
+	int result = fstat(fd1, &statbuf);
+	if(result == -1)
+	{
+		printf("Error getting file status\n");
+		return -1;
+	}
+	printf("File size: %lld bytes\n", (long long)statbuf.st_size);
+	printf("File permissions: %o\n", statbuf.st_mode & 0777);
 
 	t_bw = get_time(); 
 	
