@@ -63,7 +63,7 @@ int main ( int argc, char *argv[] )
 	printf("File size: %lld bytes\n", (long long)statbuf.st_size);
 	printf("File permissions: %o\n", statbuf.st_mode & 0777);
 
-	ret = close(fd1);
+	ret = close(fd);
 	printf("%d = close(%d)\n", ret, fd1) ;
 	return 0;
 }
