@@ -53,7 +53,7 @@ int main ( int argc, char *argv[] )
 	}
 	printf("%d = open('%s', %o)\n", fd, argv[1], 00777);
 
-	result = fstat(, &statbuf);
+	result = fstat(fd, &statbuf);
 	if(result == -1)
 	{
 		printf("Error getting file status\n");
