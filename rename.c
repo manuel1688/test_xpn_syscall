@@ -12,7 +12,7 @@ double get_time(void)
 
 int main ( int argc, char *argv[] )
 {
-	int	ret,fd1,result;
+	int	result;
 	
 	if (argc < 3)
 	{
