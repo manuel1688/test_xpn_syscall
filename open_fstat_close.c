@@ -64,6 +64,6 @@ int main ( int argc, char *argv[] )
 	printf("File permissions: %o\n", statbuf.st_mode & 0777);
 
 	ret = close(fd);
-	printf("%d = close(%d)\n", ret, fd1) ;
+	printf("%d = close(%d)\n", ret, fd) ;
 	return 0;
 }
