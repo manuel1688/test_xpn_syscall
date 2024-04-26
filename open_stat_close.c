@@ -36,6 +36,14 @@ int main ( int argc, char *argv[] )
 	}
 	printf("%d = stat('%s', %p)\n", result, argv[1], &statbuf);
 
+	result = stat64(argv[1], &statbuf);
+	if (result == -1)
+	{
+		printf("Error getting file status\n");
+		return -1;
+	}
+	printf("%d = stat64('%s', %p)\n", result, argv[1], &statbuf);
+
 	result = lstat(argv[1], &statbuf);
 	if (result == -1)
 	{
@@ -43,15 +51,20 @@ int main ( int argc, char *argv[] )
 		return -1;
 	}
 	printf("%d = lstat('%s', %p)\n", result, argv[1], &statbuf);
-	printf("File size: %lld bytes\n", (long long)statbuf.st_size);
-	printf("File permissions: %o\n", statbuf.st_mode & 0777);
+
+	result = lstat64(argv[1], &statbuf);
+	if (result == -1)
+	{
+		printf("Error getting file status\n");
+		return -1;
+	}
+	printf("%d = lstat64('%s', %p)\n", result, argv[1], &statbuf);
 
 	fd = open(argv[1], O_RDWR);
 	if (fd < 0) {
 		printf("Error opening file\n");
 		return -1 ;
 	}
-	printf("%d = open('%s', %o)\n", fd, argv[1], 00777);
 
 	result = fstat(fd, &statbuf);
 	if(result == -1)
