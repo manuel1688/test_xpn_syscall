@@ -64,9 +64,6 @@ unlink: unlink.o
 remove: remove.o
 	$(CC) -o remove remove.o $(MYLIBPATH) $(LIBRARIES)
 
-rmdir: rmdir.o
-	$(CC) -o rmdir rmdir.o $(MYLIBPATH) $(LIBRARIES)
-
 mkdir: mkdir.o
 	$(CC) -o mkdir mkdir.o $(MYLIBPATH) $(LIBRARIES)
 
