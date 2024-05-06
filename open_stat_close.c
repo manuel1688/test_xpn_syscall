@@ -28,6 +28,7 @@ int main ( int argc, char *argv[] )
 		return -1 ;
 	}
 
+	// newfstatat(AT_FDCWD, "/tmp/demo.txt", 0x7ffc100cef70, 0x0)
 	result = stat(argv[1], &statbuf);
 	if (result == -1)
 	{
@@ -59,6 +60,14 @@ int main ( int argc, char *argv[] )
 		return -1;
 	}
 	printf("%d = lstat64('%s', %p)\n", result, argv[1], &statbuf);
+
+	result = __xstat(_STAT_VER, argv[1], &statbuf);
+	if (result == -1)
+	{
+		printf("Error getting file status\n");
+		return -1;
+	}
+	printf("%d = __xstat(%d, '%s', %p)\n", result, _STAT_VER, argv[1], &statbuf);
 
 	fd = open(argv[1], O_RDWR);
 	if (fd < 0) {
