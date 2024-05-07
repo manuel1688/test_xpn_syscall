@@ -43,6 +43,8 @@ int main ( int argc, char *argv[] )
 	}
 	printf("%d = open('%s', %o)\n", fd, argv[1], 00777) ;
 
+	fd_copy = dup(fd);
+
 	// atoi convierte un string a un entero
 	long mb = atoi(argv[2]);
 	for (int i = 0; i < mb; i++)
@@ -50,12 +52,14 @@ int main ( int argc, char *argv[] )
 		// read es una funcion que lee un archivo, el primer argumento es el file descriptor
 		// el segundo argumento es el buffer donde se va a guardar la informacion leida
 		// el tercer argumento es el tamaño del buffer
-		ret = read(fd, buffer, BUFF_SIZE);
-		printf("%d = read_%d(%d, %p, %lu)\n", ret, i, fd, buffer, (unsigned long)BUFF_SIZE);
+		ret = read(fd_copy, buffer, BUFF_SIZE);
+		printf("%d = read_%d(%d, %p, %lu)\n", ret, i, fd_copy, buffer, (unsigned long)BUFF_SIZE);
 	}
 
 	ret = close(fd);
 	printf("%d = close(%d)\n", ret, fd) ;
+	ret = close(fd_copy);
+	printf("%d = close(%d)\n", ret, fd_copy) ;
 
 	return 0;
 }
