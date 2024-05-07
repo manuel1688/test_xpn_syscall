@@ -34,7 +34,7 @@ int main ( int argc, char *argv[] )
 
 	// memset es una funcion que llena un buffer con un caracter especifico, en este caso 'a'
 	// se llena hasta que el tamaño del buffer sea BUFF_SIZE
-	// memset(buffer, 'a', BUFF_SIZE) ;
+	memset(buffer, 'a', BUFF_SIZE) ;
 	
 	fd = open(argv[1], O_RDWR);
 	if (fd < 0) {
