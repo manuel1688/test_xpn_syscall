@@ -27,9 +27,30 @@ int main ( int argc, char *argv[] )
 
 	result = access(argv[1], F_OK);
 	if (result < 0) {
-		printf("Error accessing file\n");
+		printf("Error F_OK accessing file\n");
 		return -1 ;
 	}
 	printf("%d = access('%s', F_OK)\n", result, argv[1]);
+
+	result = access(argv[1], R_OK);
+	if (result < 0) {
+		printf("Error R_OK accessing file\n");
+		return -1 ;
+	}
+	printf("%d = access('%s', R_OK)\n", result, argv[1]);
+
+	result = access(argv[1], W_OK);
+	if (result < 0) {
+		printf("Error W_OK accessing file\n");
+		return -1 ;
+	}
+	printf("%d = access('%s', W_OK)\n", result, argv[1]);
+
+	result = access(argv[1], X_OK);
+	if (result < 0) {
+		printf("Error W_OK accessing file\n");
+		return -1 ;
+	}
+	printf("%d = access('%s', X_OK)\n", result, argv[1]);
 	return 0;
 }

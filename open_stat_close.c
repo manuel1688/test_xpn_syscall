@@ -28,7 +28,6 @@ int main ( int argc, char *argv[] )
 		return -1 ;
 	}
 
-	// newfstatat(AT_FDCWD, "/tmp/demo.txt", 0x7ffc100cef70, 0x0)
 	result = stat(argv[1], &statbuf);
 	if (result == -1)
 	{
