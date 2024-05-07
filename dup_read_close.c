@@ -43,7 +43,7 @@ int main ( int argc, char *argv[] )
 	}
 	printf("%d = open('%s', %o)\n", fd, argv[1], 00777) ;
 
-	fd_copy = dup(fd);
+	int fd_copy = dup(fd);
 
 	// atoi convierte un string a un entero
 	long mb = atoi(argv[2]);
