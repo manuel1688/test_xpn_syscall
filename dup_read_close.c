@@ -62,9 +62,10 @@ int main ( int argc, char *argv[] )
 	// }
 
 	ret = close(fd);
-	printf("%d = close(%d)\n", ret, fd) ;
+	printf("%d = close(%d)\n", ret, fd);
+	printf("Closing copy\n");
 	ret = close(fd_copy);
-	printf("%d = close(%d)\n", ret, fd_copy) ;
+	printf("%d = close(%d)\n", ret, fd_copy);
 
 	return 0;
 }
