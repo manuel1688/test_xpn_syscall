@@ -48,17 +48,18 @@ int main ( int argc, char *argv[] )
 		printf("Error duplicating file descriptor\n");
 		return -1 ;
 	}
+	printf("%d = dup(%d)\n", fd_copy, fd);
 
 	// atoi convierte un string a un entero
-	long mb = atoi(argv[2]);
-	for (int i = 0; i < mb; i++)
-	{
-		// read es una funcion que lee un archivo, el primer argumento es el file descriptor
-		// el segundo argumento es el buffer donde se va a guardar la informacion leida
-		// el tercer argumento es el tamaño del buffer
-		ret = read(fd_copy, buffer, BUFF_SIZE);
-		printf("%d = read_%d(%d, %p, %lu)\n", ret, i, fd_copy, buffer, (unsigned long)BUFF_SIZE);
-	}
+	// long mb = atoi(argv[2]);
+	// for (int i = 0; i < mb; i++)
+	// {
+	// 	// read es una funcion que lee un archivo, el primer argumento es el file descriptor
+	// 	// el segundo argumento es el buffer donde se va a guardar la informacion leida
+	// 	// el tercer argumento es el tamaño del buffer
+	// 	ret = read(fd_copy, buffer, BUFF_SIZE);
+	// 	printf("%d = read_%d(%d, %p, %lu)\n", ret, i, fd_copy, buffer, (unsigned long)BUFF_SIZE);
+	// }
 
 	ret = close(fd);
 	printf("%d = close(%d)\n", ret, fd) ;
