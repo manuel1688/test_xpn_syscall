@@ -20,7 +20,7 @@ fname = sys.argv[1]
 # write and read buffer
 try:
     print("fname: " + fname)
-    f = open(fname, "w", encoding="utf-8")
+    f = open(fname, "r+", encoding="utf-8")
     f.close()
 except IOError as e:
     print(e)
