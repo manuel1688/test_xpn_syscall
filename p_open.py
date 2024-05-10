@@ -21,6 +21,7 @@ fname = sys.argv[1]
 try:
     print("fname: " + fname)
     f = open(fname, "r+", encoding="utf-8")
+    print(f)
     f.close()
 except IOError as e:
     print(e)
