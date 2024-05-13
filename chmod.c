@@ -30,5 +30,6 @@ int main ( int argc, char *argv[] )
 		printf("Error: %d = chmod('%s')\n", result, argv[1]);
 		return -1 ;
 	}
+	printf("%d = chmod('%s')\n", result, argv[1]);
 	return 0;
 }
