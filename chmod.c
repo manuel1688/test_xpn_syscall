@@ -20,16 +20,15 @@ int main ( int argc, char *argv[] )
 		printf(" Usage: %s <full path> <megabytes to read>\n", argv[0]) ;
 		printf("\n") ;
 		printf(" Example:") ;
-		printf(" %s /tmp/expand/P1/dir_nuevo 2\n", argv[0]);
+		printf(" %s /tmp/expand/P1/demo.txt 2\n", argv[0]);
 		printf("\n") ;
 		return -1 ;
 	}	
 
-	result = chdir(argv[1]);
+	result = chmod(argv[1], 0644);
 	if(result < 0) {
-		printf("Error: %d = chdir('%s')\n", result, argv[1]);
+		printf("Error: %d = chmod('%s')\n", result, argv[1]);
 		return -1 ;
 	}
-	printf("%d = chdir('%s')\n", result, argv[1]);
 	return 0;
 }
