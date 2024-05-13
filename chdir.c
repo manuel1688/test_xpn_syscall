@@ -12,7 +12,7 @@ double get_time(void)
 
 int main ( int argc, char *argv[] )
 {
-	int	result;
+	int	result = -1;
 	
 	if (argc < 3)
 	{
@@ -26,8 +26,8 @@ int main ( int argc, char *argv[] )
 	}	
 
 	// el chdir retorna 0 si se pudo cambiar de directorio
-	result = chdir(argv[1])
-	if (result < 0) {
+	result = chdir(argv[1]);
+	if(result < 0) {
 		printf("Error renaming file\n");
 		return -1 ;
 	}
