@@ -20,7 +20,7 @@ int main ( int argc, char *argv[] )
 		printf(" Usage: %s <full path> <megabytes to read>\n", argv[0]) ;
 		printf("\n") ;
 		printf(" Example:") ;
-		printf(" %s /tmp/expand/test_1 2\n", argv[0]);
+		printf(" %s /tmp/expand/P1/dir_nuevo 2\n", argv[0]);
 		printf("\n") ;
 		return -1 ;
 	}	
@@ -28,7 +28,7 @@ int main ( int argc, char *argv[] )
 	// el chdir retorna 0 si se pudo cambiar de directorio
 	result = chdir(argv[1]);
 	if(result < 0) {
-		printf("Error renaming file\n");
+		printf("Error: %d = chdir('%s')\n", result, argv[1]);
 		return -1 ;
 	}
 	printf("%d = chdir('%s')\n", result, argv[1]);
