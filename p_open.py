@@ -19,8 +19,9 @@ fname = sys.argv[1]
 
 # write and read buffer
 try:
-    print("fname: " + fname)
+    print("path: " + fname)
     f = open(fname, "r+", encoding="utf-8")
+    print(f"f = open({fname}, 'r+', encoding='utf-8')")
     print(f)
     f.close()
 except IOError as e:
