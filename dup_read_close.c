@@ -44,6 +44,7 @@ int main ( int argc, char *argv[] )
 	printf("%d = open('%s', %o)\n", fd, argv[1], 00777) ;
 
 	int fd_copy = dup(fd);
+	
 	if (fd_copy < 0) {
 		printf("Error duplicating file descriptor\n");
 		return -1 ;

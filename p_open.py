@@ -2,22 +2,20 @@
 from ctypes import *
 import sys
 
-
-# get filename
+# parametros: path y programa
 if (len(sys.argv) < 2):
     print("")
     print("Usage:")
     print(" * ./main_preload.py <file name>")
     print("")
-    print("Examples:")
+    print("Ejemplo:")
     print(" ./main_preload.py /tmp/expand/P1/demo.txt")
-    print(" ./main_preload.py /tmp/demo.txt")
     print("")
     sys.exit()
 
 fname = sys.argv[1]
 
-# write and read buffer
+# open
 try:
     print("path: " + fname)
     f = open(fname, "r+", encoding="utf-8")
