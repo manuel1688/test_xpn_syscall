@@ -33,11 +33,10 @@ int main ( int argc, char *argv[] )
 		return -1 ;
 	}	
 
-	memset(buffer, 'a', BUFF_SIZE) ;
-	
 	int mode = 00777;
 
-	fd = open(argv[1], O_RDWR, mode);
+	// a nivel de open_at solo se activa si se usa O_CREAT en el segundo argumento.
+	fd = open(argv[1], O_CREAT, mode);
 	if (fd < 0) {
 		printf("Error opening file\n");
 		return -1 ;
