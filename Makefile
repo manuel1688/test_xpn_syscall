@@ -8,12 +8,7 @@
  MYFLAGS      = -O2 -Wall -D_REENTRANT -DPOSIX_THREADS -DHAVE_CONFIG_H
 
 # Rules
-all: prueba_create create_write_close open_read_close \
-openat_read_close fopen_fread_fclose create_fwrite_fclose \
-open64_read_close create_pwrite_close open_lseek_close \
-open_lseek64_close open_fseek_close open_pread_close create_ftruncate_close \
-__open_2_read_close open_stat_close rename unlink remove mkdir rmdir open_ftell_close \
-access dup_read_close chdir chmod fcntl
+all: prueba_create create_write_close open_read_close openat_read_close fopen_fread_fclose create_fwrite_fclose open64_read_close create_pwrite_close open_lseek_close open_lseek64_close open_fseek_close open_pread_close create_ftruncate_close __open_2_read_close open_stat_close rename unlink remove mkdir rmdir open_ftell_close access dup_read_close chdir chmod fcntl
 
 prueba_create: prueba_create.o
 	$(CC) -o prueba_create prueba_create.o $(MYLIBPATH) $(LIBRARIES)
@@ -98,8 +93,4 @@ fcntl: fcntl.o
 
 clean:
 	rm -f ./*.o
-	rm -f ./prueba_create ./create_write_close ./open_read_close ./openat_read_close \
-	./fopen_fread_fclose ./create_fwrite_fclose ./open64_read_close ./create_pwrite_close \
-	./open_lseek_close ./open_lseek64_close ./open_fseek_close ./open_pread_close \
-	./create_ftruncate_close ./__open_2_read_close ./open_stat_read_close ./rename ./unlink \
-	./remove ./mkdir ./rmdir ./open_ftell_close ./access ./dup_read_close ./chdir ./chmod ./fcntl
+	rm -f ./prueba_create ./create_write_close ./open_read_close ./openat_read_close ./fopen_fread_fclose ./create_fwrite_fclose ./open64_read_close ./create_pwrite_close ./open_lseek_close ./open_lseek64_close ./open_fseek_close ./open_pread_close ./create_ftruncate_close ./__open_2_read_close ./open_stat_read_close ./rename ./unlink ./remove ./mkdir ./rmdir ./open_ftell_close ./access ./dup_read_close ./chdir ./chmod ./fcntl
